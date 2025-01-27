@@ -1,0 +1,8 @@
+<ul class="todo-list" id="taskList">
+  @for (task of tasks; track task.id) {
+  <li>
+    <span>{{ task.name }}</span>
+    <button (click)="onDeleteTask(task.id)">Delete</button>
+  </li>
+  }
+</ul>

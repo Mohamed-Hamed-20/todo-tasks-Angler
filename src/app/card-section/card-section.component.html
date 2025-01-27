@@ -1,0 +1,85 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Mohamed Hamed</a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarScroll"
+      aria-controls="navbarScroll"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul
+        class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll"
+        style="--bs-scroll-height: 100px"
+      >
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="#">Something else here</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Link</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input
+          class="form-control me-2"
+          id="searchInp"
+          type="search"
+          [(ngModel)]="searchText"
+          name="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <button
+          class="btn btn-outline-success"
+          (click)="filterUsers()"
+          type="submit"
+        >
+          Search
+        </button>
+        @if (searchText) {
+        <button class="btn btn-outline-success" (click)="reset()">reset</button>
+        }
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="row row-cols-1 row-cols-md-3 g-4 bg-light">
+    @if (filteredUsers.length > 0) { @for ( user of filteredUsers; track
+    user.id) {
+    <div class="col col-xxl-3 col-xl-3 col-lg-4 col-md-6">
+      <div class="card h-100">
+        <img [src]="user.image" class="card-img-top w-auto" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title" [ngClass]="getRole(user.role)">
+            {{ user.role }}
+          </h5>
+          <h5 class="card-title">{{ user.username }}</h5>
+          <p class="card-text">{{ user.email }}</p>
+          <p class="card-text">{{ user.phone }}</p>
+          <p class="card-text">{{ user.birthDate }}</p>
+        </div>
+      </div>
+    </div>
+    } } @else {
+    <p>no data to display</p>
+    }
+  </div>
+</div>

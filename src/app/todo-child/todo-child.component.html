@@ -1,0 +1,13 @@
+<div class="todo-header">
+  <input
+    type="text"
+    id="taskInput"
+    #searchInput
+    name="taskvalue"
+    [value]="textInputValue"
+    [(ngModel)]="textInputValue"
+    (keyup.enter)="onaddTask(searchInput.value)"
+    placeholder="Enter your task here..."
+  />
+  <button (click)="onaddTask(searchInput.value)">Add Task</button>
+</div>

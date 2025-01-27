@@ -1,0 +1,6 @@
+<div class="body">
+  <div class="todo-container">
+    <app-todo-child (TaskText)="addTask($event)"></app-todo-child>
+    <app-todo [tasks]="tasks" (deleteTaskEvent)="deleteTask($event)"></app-todo>
+  </div>
+</div>

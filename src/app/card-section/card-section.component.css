@@ -1,0 +1,17 @@
+.admin {
+  background-color: #0b323d;
+  color: white;
+  padding: 5px;
+}
+
+.user {
+  background-color: lightblue;
+  color: #222;
+  padding: 5px;
+}
+
+.moderator {
+  background-color: brown;
+  color: aquamarine;
+  padding: 5px;
+}
